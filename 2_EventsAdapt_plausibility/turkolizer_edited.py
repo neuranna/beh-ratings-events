@@ -2,6 +2,7 @@
 # originally written by Kris Fedorenko and Steve Piantadosi in 2009
 # many parts rewritten by Richard Futrell in 2015
 from __future__ import print_function
+
 import sys
 import random
 import codecs
@@ -369,10 +370,10 @@ def main():
     filename, N, F, Y, seed = get_args()
     if seed is not None:
         random.seed(seed)
-    
+
     FNAME = filename.split("/")[-1]
     FNAME = FNAME.split(".")[0]
-    
+
     print()
     print("Processing the text file...")
     print()
@@ -459,5 +460,69 @@ def parse_args():
     args = parser.parse_args()
     return args
 
-if __name__ == "__main__":
+
+def create_turk_file(filename, N, F, Y):
+    FNAME = filename.split("/")[-1]
+    FNAME = FNAME.split(".")[0]
+
+    print()
+    print("Processing the text file...")
+    print()
+    print("-------")
+    with codecs.open(filename, encoding="utf-8") as infile:
+        d = read_file(infile)
+    print("Number of experiments: %d" % len(d))
+    for exp_name, exp in d.items():
+        print()
+        print("Experiment: %s" % exp_name)
+        print("          - %d items" % exp.num_items)
+        print("          - %d conditions" % exp.num_conditions)
+        print("          - %d trials" % exp.num_trials)
+        print("          - number of questions: %d" % exp.num_questions)
+        print("          - conditions: %s" % exp.conditions)
+    print("-------")
+    print()
+
+    cond_nums = [exp.num_conditions for exp in d.values()]
+    lcm = LCM(cond_nums)
+
+    print("Performing a check of the parameters...")
+    check(d, F, Y, N, lcm)
+
+    print()
+    print("Creating a latin square...")
+    # creates latin-square list of lists for all experiments
+    # (each experiment is a list of n lists, where n is number of conditions)
+    # 3 levels embedded lists
+    latin_square = latin_square_lists(d)
+
+    print()
+    print("Creating LCM (%d) lists..." % lcm)
+    LCM_lists = make_LCM_lists(d, latin_square, lcm)
+
+    print()
+    print("Creating %d lists..." % N)
+    N_lists = [copy.deepcopy(lst) for _ in range(int(N / lcm)) for lst in LCM_lists]
+
+    print()
+    print("Randomizing each list...")
+    final = finalize(N_lists, F, Y)
+
+    print()
+    print("Creating csv file...")
+    header = make_header(final)
+    rows = make_rows(final)
+
+    with codecs.open(FNAME + '.turk.csv', 'wb', encoding='utf-8') as outfile:
+        writer = csv.writer(outfile)
+        writer.writerow(header)
+        writer.writerows(rows)
+
+    print()
+    print("------- DONE! -------")
+    print("Result saved in %s" % FNAME + ".turk.csv")
+    print()
+
+
+if __name__ == '__main__':
     main()
