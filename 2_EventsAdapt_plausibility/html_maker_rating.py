@@ -1,7 +1,15 @@
 import re
-code = input("Enter code: ")
-num_items = int(input("How many trials on the survey? "))
-survey_name = input("What do you want to call the output file? ")
+
+# preset option
+code = "Red Forest"
+num_items = 54
+survey_name = "EventsAdapt_testset.html"
+
+# input option
+# code = input("Enter code: ")
+# num_items = int(input("How many trials on the survey? "))
+# survey_name = input("What do you want to call the output file? ")
+
 header = re.sub("<CODE>", code, """
 
 <script type="text/javascript"> 
@@ -41,7 +49,7 @@ By answering the following questions, you are participating in a study being per
 
 <h2>Instructions</h2>
 
-<p><i>Please read each sentence and rate how plausible it is. A sentence is completely plausible if the situation it describes commonly occurs in the real world. A sentence is completely implausible if the situation it describes never occurs in the real world.</i></p>
+<h3><i>Please read each sentence and rate how plausible it is. A sentence is completely plausible if the situation it describes commonly occurs in the real world. A sentence is completely implausible if the situation it describes never occurs in the real world.</i></h3>
 
 <p><b>Please note that there are correct answers for many questions.</b></p>
 
@@ -52,6 +60,7 @@ By answering the following questions, you are participating in a study being per
 f = open(survey_name, "w")
 f.write(header + "\n")
 
+# questions from the items
 for i in range(1, num_items + 1):
     f.write("""<p id="${code__%(num)s}__%(num)s"><b>Sentence:</b> ${trial__%(num)s}</p>
 <p><b>Sentence rating:</b></p>
@@ -59,9 +68,22 @@ for i in range(1, num_items + 1):
 <p>---------------------------------------------------------------------------------------------------------------</p>""" %{"num":i})
     f.write("\n")
 
+# language profeciency questions
+f.write("""
+    <p>Please complete the following sentences with <b>more than three words</b></p>
+    <p>(a) When I was younger, I would go to school and _______</p>
+    <p><textarea name="profeciency1" cols="80" rows="1">When I was younger, I would go to school and </textarea></p>
+    <p>---------------------------------------------------------------------------------------------------------------</p>
+    <p>(b) It's raining tomorrow, so _______</p>
+    <p><textarea name="profeciency2" cols="80" rows="1">It's raining tomorrow, so </textarea></p>
+    <p>---------------------------------------------------------------------------------------------------------------</p>
+    """)
+
+
+# final textbox
 f.write("""<p>---------------------------------------------------------------------------------------------------------------</p>
 <p><b><br />
-</b>Please leave any comments here.</p>
+</b>Thank you for taking the survey! Please leave any comments here.</p>
 <p><textarea name="answer" cols="80" rows="3"></textarea></p>""")
 
 f.close()

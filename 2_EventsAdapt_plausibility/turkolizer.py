@@ -1,8 +1,10 @@
 #! env python
 # originally written by Kris Fedorenko and Steve Piantadosi in 2009
 # many parts rewritten by Richard Futrell in 2015
-from __future__ import print_function
 
+# modified and commented on by Zawad Chowdhury in 2021 for the computational
+# plausibility project at EvLab
+from __future__ import print_function
 import sys
 import random
 import codecs
@@ -16,7 +18,17 @@ try:
 except NameError:
     raw_input = input
 
+# object definitions (paradigms for Trial and Experiment)
+
 class Trial(object):
+    """
+    Takes in a trial string, and procures necessary information from it such as
+    self.exp - experiment name
+    self.item - item number
+    self.condition - trial condition
+    self.questions - question, answer pairs (can change read_question_strings)
+    self.body - body of trial
+    """
     def __init__(self, trial_str):
         self.trial_str = trial_str
         self.lines = trial_str.splitlines()
@@ -47,6 +59,11 @@ def read_body_strings(body_strings):
     return "<br/>".join(body_strings)
 
 class Experiment(object):
+    """
+    Input: trials, dict name -> Trial instances
+    Trial name = item + condition
+    Procures conditions and items for all the trials in dict
+    """
     def __init__(self, trials):
         self.trials = trials
         self.num_trials = len(self.trials)
@@ -61,7 +78,10 @@ class Experiment(object):
 
         for trial in self.trials.values():
             self.num_questions = len(trial.questions)
+            # assumes all trial in experiment have the same no of questions
             break
+
+# helper functions
 
 def gcd(a,b):
     """ Return greatest common divisor of a and b. """
@@ -78,14 +98,20 @@ def LCM(terms):
     return functools.reduce(lcm, terms)
 
 def prob_choice(lst):
-    n = random.uniform(0, 1)
-    for item, weight in lst:
-        if n < weight:
-            return item
-        n = n - weight
-    raise ValueError("Probabilities do not sum to 1: %s" % lst)
+    """
+    Input: lst is list of item, weight with weights summing to 1.
+    Outputs an item in list, chosen with the appropriate weight.
+    Requires Python 3.6
+    """
+    return random.choices(
+        population=[item for (item, weight) in lst],
+        weights=[weight for (item, weight) in lst])[0]
 
 def make_header(final):
+    """
+    Takes the final output, and generates the header of the output csv
+    Basically the column headings like "trial__1"
+    """
     header = ["list"]
     for i in range(len(final[0])):
         header.append("trial__" + str(i+1))
@@ -109,6 +135,8 @@ def generate_keys(items, conditions):
             index = j + i * num_conditions
             yield items[index] + conditions[j]
 
+# main functions
+
 def read_file(infile):
     """ Read in a file, returning a dictionary of experiment names to
     experiments. 
@@ -127,6 +155,8 @@ def read_file(infile):
 def latin_square_lists(d):
     """ Generate Latin Square trial lists for each experiment.
     Return a dict of experiment names to lists of lists of trial objects.
+    All item+condition pairs exist, we produce each diagonal of the square for
+    each experiment.
     """
     lists = {}
     for exp_name, exp in d.items():
@@ -136,7 +166,7 @@ def latin_square_lists(d):
             L = []
             for j in generate_keys(exp.items, conditions):
                 try:
-                    L.append(exp.trials[j])
+                    L.append(exp.trials[j])  # keys of trial dict are item+cond
                 except KeyError:
                     print("Missing trial:")
                     print("        item %s, condition %s" % (j[0], j[1:]))
@@ -148,6 +178,10 @@ def latin_square_lists(d):
     return lists
 
 def make_LCM_lists(d, latin_square, lcm):
+    """
+    creates lcm lists, using each experiment's latin square list lcm/num_cond
+    times to produce distinct lists.
+    """
     lists = [[] for _ in range(lcm)]
     for exp_name, exp in d.items():
         num = int(lcm / exp.num_conditions)
@@ -365,14 +399,17 @@ def make_rows(list_of_trials):
                                     answer]))
         yield newrow
 
-        
-def main():
-    filename, N, F, Y, seed = get_args()
+
+def create_turk_file(filename=None, N=None, F=None, Y=None, seed=None,
+                     FNAME=None, append=False):
+    if filename is None:  # two modes, either pass in all args or get input
+        filename, N, F, Y, seed = get_args()
     if seed is not None:
         random.seed(seed)
 
-    FNAME = filename.split("/")[-1]
-    FNAME = FNAME.split(".")[0]
+    if FNAME is None:
+        FNAME = filename.split("/")[-1]
+        FNAME = FNAME.split(".")[0]
 
     print()
     print("Processing the text file...")
@@ -428,7 +465,8 @@ def main():
     header = make_header(final)
     rows = make_rows(final)
 
-    with codecs.open(FNAME + '.turk.csv', 'wb', encoding='utf-8') as outfile:
+    mode = 'ab' if append else 'wb'
+    with codecs.open(FNAME + '.turk.csv', mode, encoding='utf-8') as outfile:
         writer = csv.writer(outfile)
         writer.writerow(header)
         writer.writerows(rows)
@@ -450,7 +488,7 @@ def get_args():
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Create Latin Square experiment lists for Mechanical Turk from Linger-formatted stimuli.",
-        epilog="Example usage: python turkolizer_edited.py example_turk_format.txt 32 1 1",
+        epilog="Example usage: python turkolizer.py example_turk_format.txt 32 1 1",
         )
     parser.add_argument('filename', type=str, help="Filename of Linger-formatted stimuli.", nargs='?', default=None)
     parser.add_argument('num_lists', type=int, help="Desired number of lists.", nargs='?', default=None)
@@ -461,68 +499,5 @@ def parse_args():
     return args
 
 
-def create_turk_file(filename, N, F, Y):
-    FNAME = filename.split("/")[-1]
-    FNAME = FNAME.split(".")[0]
-
-    print()
-    print("Processing the text file...")
-    print()
-    print("-------")
-    with codecs.open(filename, encoding="utf-8") as infile:
-        d = read_file(infile)
-    print("Number of experiments: %d" % len(d))
-    for exp_name, exp in d.items():
-        print()
-        print("Experiment: %s" % exp_name)
-        print("          - %d items" % exp.num_items)
-        print("          - %d conditions" % exp.num_conditions)
-        print("          - %d trials" % exp.num_trials)
-        print("          - number of questions: %d" % exp.num_questions)
-        print("          - conditions: %s" % exp.conditions)
-    print("-------")
-    print()
-
-    cond_nums = [exp.num_conditions for exp in d.values()]
-    lcm = LCM(cond_nums)
-
-    print("Performing a check of the parameters...")
-    check(d, F, Y, N, lcm)
-
-    print()
-    print("Creating a latin square...")
-    # creates latin-square list of lists for all experiments
-    # (each experiment is a list of n lists, where n is number of conditions)
-    # 3 levels embedded lists
-    latin_square = latin_square_lists(d)
-
-    print()
-    print("Creating LCM (%d) lists..." % lcm)
-    LCM_lists = make_LCM_lists(d, latin_square, lcm)
-
-    print()
-    print("Creating %d lists..." % N)
-    N_lists = [copy.deepcopy(lst) for _ in range(int(N / lcm)) for lst in LCM_lists]
-
-    print()
-    print("Randomizing each list...")
-    final = finalize(N_lists, F, Y)
-
-    print()
-    print("Creating csv file...")
-    header = make_header(final)
-    rows = make_rows(final)
-
-    with codecs.open(FNAME + '.turk.csv', 'wb', encoding='utf-8') as outfile:
-        writer = csv.writer(outfile)
-        writer.writerow(header)
-        writer.writerows(rows)
-
-    print()
-    print("------- DONE! -------")
-    print("Result saved in %s" % FNAME + ".turk.csv")
-    print()
-
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    create_turk_file()
