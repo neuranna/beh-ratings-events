@@ -51,6 +51,8 @@ By answering the following questions, you are participating in a study being per
 
 <h3><i>Please read each sentence and rate how plausible it is. A sentence is completely plausible if the situation it describes commonly occurs in the real world. A sentence is completely implausible if the situation it describes never occurs in the real world.</i></h3>
 
+<h3><i>Do not spend too much time thinking about each sentence - just go with your intuition.</i></h3>
+
 <p><b>Please note that there are correct answers for many questions.</b></p>
 
 <p>Because some Mechanical Turk users answer questions randomly, we will reject users with error rates of 25% or larger.&nbsp; Consequently, if you cannot answer 75% of the questions correctly, please do not fill out the survey.<br />
