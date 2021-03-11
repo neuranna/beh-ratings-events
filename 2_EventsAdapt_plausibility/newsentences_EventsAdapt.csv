@@ -1511,10 +1511,10 @@
 1509,378,active,plausible,The geneticist consulted the neurologist.,The neurologist consulted the geneticist.,AAR
 1510,378,passive,plausible,The geneticist was consulted by the neurologist.,The neurologist consulted the geneticist.,AAR
 1511,378,passive,plausible,The neurologist was consulted by the geneticist.,The neurologist consulted the geneticist.,AAR
-1512,379,active,plausible,The fashionista humiliated the mode.,The fashionista humiliated the mode.,AAR
-1513,379,active,plausible,The mode humiliated the fashionista.,The fashionista humiliated the mode.,AAR
-1514,379,passive,plausible,The mode was humiliated by the fashionista.,The fashionista humiliated the mode.,AAR
-1515,379,passive,plausible,The fashionista was humiliated by the mode.,The fashionista humiliated the mode.,AAR
+1512,379,active,plausible,The fashionista humiliated the model.,The fashionista humiliated the model.,AAR
+1513,379,active,plausible,The model humiliated the fashionista.,The fashionista humiliated the model.,AAR
+1514,379,passive,plausible,The model was humiliated by the fashionista.,The fashionista humiliated the model.,AAR
+1515,379,passive,plausible,The fashionista was humiliated by the model.,The fashionista humiliated the model.,AAR
 1516,380,active,plausible,The butcher accused the meatpacker.,The butcher accused the meatpacker.,AAR
 1517,380,active,plausible,The meatpacker accused the butcher.,The butcher accused the meatpacker.,AAR
 1518,380,passive,plausible,The meatpacker was accused by the butcher.,The butcher accused the meatpacker.,AAR

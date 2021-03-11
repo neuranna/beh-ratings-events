@@ -16,13 +16,15 @@ data = do.call("rbind", data)
 num.trials = 54  # maximum number of trials per participant
 
 # only keep WorkerId and cols that Start with Answer or Input
-data = data %>% select(starts_with('Input'),starts_with('Answer'),starts_with('WorkerId')) 
+data = data %>% select(starts_with('Input'),starts_with('Answer'),
+                       starts_with('WorkerId')) %>%
+            select(-Input.list, -Answer.answer, -Answer.proficiency1,
+                   -Answer.proficiency2)
 
 # gather (specify the list of columns you need)
 data = data %>% gather(key='variable',value="value",
-                       -WorkerId,-Input.list,-Answer.country,
-                       -Answer.English,-Answer.answer, -Answer.proficiency1,
-                       -Answer.proficiency2)
+                       -WorkerId,-Answer.country, -Answer.English, 
+                       -Answer.profcheck1, -Answer.profcheck2)
 
 # separate
 data = data %>% separate(variable, into=c('Type','TrialNum'),sep='__',convert=TRUE) 
@@ -36,6 +38,11 @@ data = data %>%
 
 ## Summarize ratings data 
 data$Answer.Rating <- as.numeric(data$Answer.Rating)
+
+## replace plausible-0 with plausible0
+data$Input.code <- gsub('plausible-0', 'plausible0', data$Input.code)
+data$Input.code <- gsub('plausible-1', 'plausible1', data$Input.code)
+
 
 data = data %>% 
   separate(Input.code,into=c('TrialType','cond','Item','xx1','xx2'),sep='_') %>%
@@ -53,25 +60,25 @@ write_csv(data,"longform_data.csv")
 # ANALYSES
 
 ## Look at data by participant (TODO: fix avg rating for plaus and implaus)
-data = data %>% 
+data = data %>%
   group_by(WorkerId) %>%
   mutate(
     na.pct = mean(is.na(Answer.Rating)),
     n = length(Answer.Rating)) %>%
   ungroup()
-
-data_summ = data %>% 
-  group_by(WorkerId) %>%
-  summarize(
-    na.pct = mean(is.na(Answer.Rating)),
-    n = length(Answer.Rating))
-
-data_byplausibility = data %>% 
-  group_by(WorkerId, Plausibility) %>% 
-  summarise_at(c("Answer.Rating"), funs(mean(., na.rm=TRUE)))
+# 
+# data_summ = data %>% 
+#   group_by(WorkerId) %>%
+#   summarize(
+#     na.pct = mean(is.na(Answer.Rating)),
+#     n = length(Answer.Rating))
+# 
+# data_byplausibility = data %>% 
+#   group_by(WorkerId, Plausibility) %>% 
+#   summarise_at(c("Answer.Rating"), funs(mean(., na.rm=TRUE)))
 
 ## save a summary of individual subjects' performance
-write_csv(data_summ,"data_summ_by_worker.csv")
+# write_csv(data_summ,"data_summ_by_worker.csv")
 
 z_score = function(xs) {
   (xs - mean(xs)) / sd(xs)
@@ -82,9 +89,18 @@ data$Item = as.numeric(data$Item)
 data.good = data %>%
   filter(Answer.English == "yes" &
          Answer.country == "USA" &
+         Answer.profcheck1 == "Yes" &
+         Answer.profcheck2 == "Yes" &
          TrialType != "filler" &
          n <= num.trials) %>%
-  filter(!is.na(Answer.Rating))
+  filter(!is.na(Answer.Rating)) %>%
+  select(-Answer.English, -Answer.country, -Answer.profcheck1, -Answer.profcheck2,
+         -na.pct, -n)
+
+
+
+
+
 
 data.good.summary = data.good %>%
   group_by(Item, Plausibility, Voice) %>%

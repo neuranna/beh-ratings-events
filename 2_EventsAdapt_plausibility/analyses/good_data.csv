@@ -1,0 +1,312 @@
+WorkerId,TrialNum,Answer.Rating,TrialType,Voice,Plausibility,Item,Input.trial
+A19WXS1CLVLEEX,1,7,AI,passive,plausible,47,The trousers were laundered by the contractor.
+A19WXS1CLVLEEX,2,1,AI,active,implausible,85,The estate inspected the sheriff.
+A19WXS1CLVLEEX,3,7,AAN,active,implausible,147,The successor chose the baron.
+A19WXS1CLVLEEX,4,1,AI,passive,implausible,57,The carnivore was eaten by the steak.
+A19WXS1CLVLEEX,5,7,AAN,active,plausible,173,The judge praised the gold medalist.
+A19WXS1CLVLEEX,6,7,AAR,passive,plausible1,185,The preacher was hugged by the churchgoer.
+A19WXS1CLVLEEX,7,7,AAN,active,plausible,153,The monarch banished the insurgent.
+A19WXS1CLVLEEX,8,7,AI,active,plausible,53,The hoarder hid the stash.
+A19WXS1CLVLEEX,9,1,AI,active,implausible,49,The wash basin cleaned the domestic.
+A19WXS1CLVLEEX,10,6,AAR,passive,plausible1,237,The broker was introduced by the donor.
+A19WXS1CLVLEEX,11,7,AI,passive,plausible,21,The octopus was grilled by the cook.
+A19WXS1CLVLEEX,12,6,AAN,active,plausible,361,The TV station head promoted the newsagent.
+A19WXS1CLVLEEX,13,7,AAN,active,plausible,341,The colonel supervised the cadet.
+A19WXS1CLVLEEX,15,5,AAR,active,plausible0,197,The valet entertained the envoy.
+A19WXS1CLVLEEX,16,5,AAN,passive,plausible,125,The trainer was defied by the biker.
+A19WXS1CLVLEEX,17,5,AAR,passive,plausible0,265,The taxi-driver was repulsed by the postal worker.
+A19WXS1CLVLEEX,18,7,AAR,active,plausible0,259,The accuser confronted the vandal.
+A19WXS1CLVLEEX,19,5,AAR,passive,plausible1,375,The photographer was paid by the barrister.
+A19WXS1CLVLEEX,20,7,AAN,passive,plausible,161,The inspector was conned by the impersonator.
+A19WXS1CLVLEEX,21,1,AI,passive,implausible,15,The handyman was repaired by the faucet.
+A19WXS1CLVLEEX,22,7,AAR,passive,plausible0,221,The diva was admired by the musician.
+A19WXS1CLVLEEX,23,6,AAN,passive,plausible,353,The ghost was sensed by the channeler.
+A19WXS1CLVLEEX,24,5,AAN,passive,implausible,105,The admirer was badgered by the director.
+A19WXS1CLVLEEX,25,7,AI,passive,plausible,81,The suitcase was pulled by the stewardess.
+A19WXS1CLVLEEX,26,7,AI,active,plausible,285,The attendant pressed the button.
+A19WXS1CLVLEEX,27,5,AAN,active,implausible,163,The shopkeeper unnerved the pyromaniac.
+A19WXS1CLVLEEX,28,1,AI,active,implausible,63,The dinner prepared the woman.
+A19WXS1CLVLEEX,29,4,AI,passive,implausible,73,The advisor was edited by the paper.
+A19WXS1CLVLEEX,30,4,AAN,passive,plausible,329,The spirit was vanquished by the exorcist.
+A19WXS1CLVLEEX,31,7,AAR,active,plausible0,407,The cinematographer favored the movie star.
+A19WXS1CLVLEEX,32,5,AAN,passive,implausible,343,The personal trainer was weighed by the Olympian.
+A19WXS1CLVLEEX,33,6,AAR,active,plausible1,383,The newcomer snubbed the neighbor.
+A19WXS1CLVLEEX,35,1,AI,active,implausible,23,The victory guaranteed the skipper.
+A19WXS1CLVLEEX,36,2,AAR,active,plausible0,379,The fashionista humiliated the mode.
+A19WXS1CLVLEEX,37,6,AAR,passive,plausible0,397,The loyalist was upset by the infantryman.
+A19WXS1CLVLEEX,38,4,AAN,passive,implausible,155,The robber was burgled by the industrialist.
+A19WXS1CLVLEEX,39,3,AAN,passive,implausible,177,The environmentalist was cautioned by the tobacconist.
+A19WXS1CLVLEEX,40,5,AAN,active,implausible,357,The ruffian released the bailiff.
+A19WXS1CLVLEEX,41,6,AAR,passive,plausible1,399,The claims adjuster was harassed by the retailer.
+A19WXS1CLVLEEX,42,7,AI,active,plausible,7,The adventurer requested the beverage.
+A19WXS1CLVLEEX,43,5,AAR,active,plausible1,207,The creditor assuaged the actuary.
+A19WXS1CLVLEEX,44,7,AAR,passive,plausible0,183,The athlete was vexed by the commentator.
+A19WXS1CLVLEEX,45,1,AI,passive,implausible,321,The crackhead was smoked by the pipe.
+A19WXS1CLVLEEX,46,7,AI,passive,plausible,59,The soda was drunk by the man.
+A19WXS1CLVLEEX,47,1,AI,active,implausible,309,The gun loaded the minuteman.
+A19WXS1CLVLEEX,48,2,AI,passive,implausible,293,The counselor were emphasized by the rules.
+A19WXS1CLVLEEX,49,7,AI,passive,plausible,301,The poem was recited by the bookworm.
+A19WXS1CLVLEEX,50,7,AAR,active,plausible1,263,The leader quoted the protestor.
+A19WXS1CLVLEEX,51,7,AI,active,plausible,87,The celebrity signed the photograph.
+A19WXS1CLVLEEX,52,5,AAN,active,implausible,331,The pop star stalked the paparazzi.
+A19WXS1CLVLEEX,53,7,AI,active,plausible,31,The announcer mispronounced the word.
+A19WXS1CLVLEEX,54,4,AAR,active,plausible1,415,The foreman devastated the plumber.
+A1XVEKS9O73ERE,1,7,AI,passive,plausible,291,The password was memorized by the hacker.
+A1XVEKS9O73ERE,2,1,AI,active,implausible,65,The memento misplaced the sightseer.
+A1XVEKS9O73ERE,3,7,AAN,active,plausible,171,The terrorist petrified the first lady.
+A1XVEKS9O73ERE,4,7,AI,passive,plausible,323,The contract was burnt by the charlatan.
+A1XVEKS9O73ERE,5,7,AI,active,plausible,45,The decorator recommended the curtains.
+A1XVEKS9O73ERE,6,3,AAN,passive,implausible,89,The nanny was tutored by the boy.
+A1XVEKS9O73ERE,7,3,AAN,passive,implausible,145,The headmaster was reprimanded by the kid.
+A1XVEKS9O73ERE,8,2,AI,active,plausible,67,The humorist verified the schedule.
+A1XVEKS9O73ERE,9,3,AI,passive,implausible,315,The supremacist was established by the fund.
+A1XVEKS9O73ERE,12,1,AI,active,implausible,17,The table tidied the receptionist.
+A1XVEKS9O73ERE,13,5,AAR,passive,plausible0,205,The baroness was married by the nobleman.
+A1XVEKS9O73ERE,14,7,AI,active,plausible,27,The soldier raised the banner.
+A1XVEKS9O73ERE,15,1,AI,passive,implausible,289,The couch-potato was forgotten by the umbrella.
+A1XVEKS9O73ERE,16,7,AAN,passive,implausible,129,The genius was shocked by the cousin.
+A1XVEKS9O73ERE,17,7,AAN,active,plausible,363,The anthropologist studied the tribesman.
+A1XVEKS9O73ERE,18,1,AAN,active,implausible,337,The economist acquitted the jury.
+A1XVEKS9O73ERE,19,7,AAN,passive,plausible,151,The infant was pampered by the father.
+A1XVEKS9O73ERE,20,1,AI,passive,implausible,75,The bookkeeper was created by the graph.
+A1XVEKS9O73ERE,21,5,AAR,passive,plausible1,243,The interpreter was swindled by the messenger.
+A1XVEKS9O73ERE,22,5,AAR,active,plausible1,199,The stranger pushed the acrobat.
+A1XVEKS9O73ERE,23,6,AAN,passive,plausible,335,The seaman was undercharged by the streetwalker.
+A1XVEKS9O73ERE,24,6,AAR,passive,plausible0,239,The dean was commended by the shrink.
+A1XVEKS9O73ERE,25,2,AAN,active,implausible,139,The ambassador transported the driver.
+A1XVEKS9O73ERE,26,5,AAR,passive,plausible1,193,The drummer was annoyed by the weatherman.
+A1XVEKS9O73ERE,27,7,AAN,active,plausible,141,The warden caught the inmate.
+A1XVEKS9O73ERE,28,7,AAN,active,plausible,347,The lion chased the tour-guide.
+A1XVEKS9O73ERE,29,5,AAR,active,plausible0,217,The poet awed the entertainer.
+A1XVEKS9O73ERE,30,1,AAN,passive,implausible,327,The producer was cast by the actress.
+A1XVEKS9O73ERE,31,7,AAR,active,plausible0,249,The wizard protected the gnome.
+A1XVEKS9O73ERE,32,6,AAR,active,plausible0,395,The surfer impressed the swimmer.
+A1XVEKS9O73ERE,33,1,AI,active,implausible,39,The marmalade detested the nutritionist.
+A1XVEKS9O73ERE,34,6,AAN,active,plausible,123,The artisan trained the apprentice.
+A1XVEKS9O73ERE,35,1,AAN,active,implausible,359,The traitor pardoned the president.
+A1XVEKS9O73ERE,36,7,AI,active,plausible,307,The travel-agent photocopied the passport.
+A1XVEKS9O73ERE,37,6,AAR,active,plausible1,233,The oracle baffled the missionary.
+A1XVEKS9O73ERE,38,5,AI,passive,plausible,11,The alcohol was provided by the overseer.
+A1XVEKS9O73ERE,39,7,AI,passive,plausible,61,The computer was purchased by the instructor.
+A1XVEKS9O73ERE,40,6,AAR,passive,plausible0,387,The miller was mentioned by the baker.
+A1XVEKS9O73ERE,41,7,AAN,passive,implausible,349,The tennis player was thanked by the chiropractor.
+A1XVEKS9O73ERE,42,6,AAN,active,implausible,109,The marketer duped the prankster.
+A1XVEKS9O73ERE,43,6,AAR,active,plausible1,403,The mathematician nagged the physicist.
+A1XVEKS9O73ERE,44,6,AAR,active,plausible0,195,The go-between belittled the defendant.
+A1XVEKS9O73ERE,45,6,AAR,active,plausible1,271,The hunter betrayed the culprit.
+A1XVEKS9O73ERE,46,5,AAN,active,implausible,159,The recluse taunted the windbag.
+A1XVEKS9O73ERE,47,1,AI,active,implausible,297,The trashcan emptied the fisherman.
+A1XVEKS9O73ERE,48,6,AAR,passive,plausible0,409,The crane operator was outraged by the bricklayer.
+A1XVEKS9O73ERE,49,7,AAN,passive,plausible,355,The deer was trapped by the huntsman.
+A1XVEKS9O73ERE,50,6,AAN,passive,plausible,131,The bureaucrat was bribed by the smuggler.
+A1XVEKS9O73ERE,51,1,AI,passive,implausible,51,The convalescent was taken by the pill.
+A1XVEKS9O73ERE,52,5,AAR,passive,plausible1,215,The mapmaker was affronted by the farmer.
+A1XVEKS9O73ERE,53,7,AAN,passive,plausible,107,The youth was revived by the paramedic.
+A1XVEKS9O73ERE,54,7,AAR,passive,plausible1,391,The sharecropper was misled by the fieldworker.
+A1YH2I4Y2SYAXJ,1,7,AAR,passive,plausible0,197,The envoy was entertained by the valet.
+A1YH2I4Y2SYAXJ,2,7,AAR,passive,plausible1,383,The neighbor was snubbed by the newcomer.
+A1YH2I4Y2SYAXJ,3,7,AAR,active,plausible0,183,The commentator vexed the athlete.
+A1YH2I4Y2SYAXJ,4,7,AAR,passive,plausible1,263,The protestor was quoted by the leader.
+A1YH2I4Y2SYAXJ,5,7,AAR,active,plausible1,375,The barrister paid the photographer.
+A1YH2I4Y2SYAXJ,6,1,AAR,passive,plausible0,379,The mode was humiliated by the fashionista.
+A1YH2I4Y2SYAXJ,7,7,AAR,active,plausible1,399,The retailer harassed the claims adjuster.
+A1YH2I4Y2SYAXJ,8,7,AAR,active,plausible0,265,The postal worker repulsed the taxi-driver.
+A1YH2I4Y2SYAXJ,9,5,AAR,passive,plausible1,207,The actuary was assuaged by the creditor.
+A1YH2I4Y2SYAXJ,12,7,AI,passive,plausible,285,The button was pressed by the attendant.
+A1YH2I4Y2SYAXJ,13,1,AI,passive,implausible,63,The woman was prepared by the dinner.
+A1YH2I4Y2SYAXJ,14,2,AAN,passive,implausible,357,The bailiff was released by the ruffian.
+A1YH2I4Y2SYAXJ,15,7,AI,passive,plausible,31,The word was mispronounced by the announcer.
+A1YH2I4Y2SYAXJ,16,7,AAR,passive,plausible0,407,The movie star was favored by the cinematographer.
+A1YH2I4Y2SYAXJ,17,1,AI,passive,implausible,309,The minuteman was loaded by the gun.
+A1YH2I4Y2SYAXJ,18,7,AAR,active,plausible0,397,The infantryman upset the loyalist.
+A1YH2I4Y2SYAXJ,19,7,AAN,passive,plausible,341,The cadet was supervised by the colonel.
+A1YH2I4Y2SYAXJ,20,7,AAN,passive,plausible,173,The gold medalist was praised by the judge.
+A1YH2I4Y2SYAXJ,21,7,AAN,active,plausible,353,The channeler sensed the ghost.
+A1YH2I4Y2SYAXJ,22,1,AI,active,implausible,57,The steak ate the carnivore.
+A1YH2I4Y2SYAXJ,23,7,AAN,passive,plausible,153,The insurgent was banished by the monarch.
+A1YH2I4Y2SYAXJ,24,7,AAN,active,plausible,125,The biker defied the trainer.
+A1YH2I4Y2SYAXJ,25,1,AI,active,implausible,15,The faucet repaired the handyman.
+A1YH2I4Y2SYAXJ,26,7,AAN,passive,plausible,361,The newsagent was promoted by the TV station head.
+A1YH2I4Y2SYAXJ,27,6,AAR,active,plausible1,237,The donor introduced the broker.
+A1YH2I4Y2SYAXJ,28,7,AAR,active,plausible1,185,The churchgoer hugged the preacher.
+A1YH2I4Y2SYAXJ,29,7,AAN,active,plausible,161,The impersonator conned the inspector.
+A1YH2I4Y2SYAXJ,30,1,AI,active,implausible,293,The rules emphasized the counselor.
+A1YH2I4Y2SYAXJ,31,6,AAN,passive,implausible,147,The baron was chosen by the successor.
+A1YH2I4Y2SYAXJ,32,1,AI,active,implausible,73,The paper edited the advisor.
+A1YH2I4Y2SYAXJ,33,1,AI,passive,implausible,49,The domestic was cleaned by the wash basin.
+A1YH2I4Y2SYAXJ,34,7,AAN,passive,implausible,163,The pyromaniac was unnerved by the shopkeeper.
+A1YH2I4Y2SYAXJ,35,7,AI,passive,plausible,7,The beverage was requested by the adventurer.
+A1YH2I4Y2SYAXJ,36,7,AI,active,plausible,59,The man drank the soda.
+A1YH2I4Y2SYAXJ,37,7,AAN,active,implausible,177,The tobacconist cautioned the environmentalist.
+A1YH2I4Y2SYAXJ,38,7,AAR,passive,plausible0,259,The vandal was confronted by the accuser.
+A1YH2I4Y2SYAXJ,39,7,AAR,passive,plausible1,415,The plumber was devastated by the foreman.
+A1YH2I4Y2SYAXJ,40,7,AAR,active,plausible0,221,The musician admired the diva.
+A1YH2I4Y2SYAXJ,41,5,AI,active,plausible,47,The contractor laundered the trousers.
+A1YH2I4Y2SYAXJ,42,7,AI,active,plausible,301,The bookworm recited the poem.
+A1YH2I4Y2SYAXJ,43,7,AAN,active,plausible,329,The exorcist vanquished the spirit.
+A1YH2I4Y2SYAXJ,45,1,AI,passive,implausible,23,The skipper was guaranteed by the victory.
+A1YH2I4Y2SYAXJ,46,2,AAN,active,implausible,155,The industrialist burgled the robber.
+A1YH2I4Y2SYAXJ,47,7,AI,passive,plausible,53,The stash was hidden by the hoarder.
+A1YH2I4Y2SYAXJ,48,1,AI,passive,implausible,85,The sheriff was inspected by the estate.
+A1YH2I4Y2SYAXJ,49,2,AAN,passive,implausible,331,The paparazzi was stalked by the pop star.
+A1YH2I4Y2SYAXJ,50,4,AAN,active,implausible,343,The Olympian weighed the personal trainer.
+A1YH2I4Y2SYAXJ,51,7,AI,active,plausible,21,The cook grilled the octopus.
+A1YH2I4Y2SYAXJ,52,1,AI,active,implausible,321,The pipe smoked the crackhead.
+A1YH2I4Y2SYAXJ,53,7,AI,passive,plausible,87,The photograph was signed by the celebrity.
+A1YH2I4Y2SYAXJ,54,7,AI,active,plausible,81,The stewardess pulled the suitcase.
+A270HX8LH9LJ8W,1,5,AAN,passive,plausible,163,The shopkeeper was unnerved by the pyromaniac.
+A270HX8LH9LJ8W,2,1,AAN,passive,implausible,353,The channeler was sensed by the ghost.
+A270HX8LH9LJ8W,3,2,AI,passive,implausible,81,The stewardess was pulled by the suitcase.
+A270HX8LH9LJ8W,4,7,AI,active,plausible,73,The advisor edited the paper.
+A270HX8LH9LJ8W,5,4,AAN,active,implausible,153,The insurgent banished the monarch.
+A270HX8LH9LJ8W,6,1,AI,passive,implausible,59,The man was drunk by the soda.
+A270HX8LH9LJ8W,7,6,AAR,passive,plausible1,259,The accuser was confronted by the vandal.
+A270HX8LH9LJ8W,8,6,AAR,passive,plausible0,375,The barrister was paid by the photographer.
+A270HX8LH9LJ8W,9,7,AAN,active,implausible,173,The gold medalist praised the judge.
+A270HX8LH9LJ8W,10,7,AAR,passive,plausible0,237,The donor was introduced by the broker.
+A270HX8LH9LJ8W,12,7,AAN,active,plausible,105,The admirer badgered the director.
+A270HX8LH9LJ8W,13,7,AI,active,plausible,321,The crackhead smoked the pipe.
+A270HX8LH9LJ8W,14,6,AAR,passive,plausible1,197,The valet was entertained by the envoy.
+A270HX8LH9LJ8W,15,1,AI,passive,implausible,47,The contractor were laundered by the trousers.
+A270HX8LH9LJ8W,17,7,AAN,active,implausible,361,The newsagent promoted the TV station head.
+A270HX8LH9LJ8W,18,7,AAN,active,plausible,155,The robber burgled the industrialist.
+A270HX8LH9LJ8W,19,7,AAR,active,plausible1,221,The diva admired the musician.
+A270HX8LH9LJ8W,20,1,AI,passive,implausible,21,The cook was grilled by the octopus.
+A270HX8LH9LJ8W,21,1,AI,active,implausible,7,The beverage requested the adventurer.
+A270HX8LH9LJ8W,22,2,AAN,passive,implausible,329,The exorcist was vanquished by the spirit.
+A270HX8LH9LJ8W,23,7,AI,passive,plausible,309,The gun was loaded by the minuteman.
+A270HX8LH9LJ8W,24,1,AI,active,implausible,53,The stash hid the hoarder.
+A270HX8LH9LJ8W,25,1,AI,active,implausible,31,The word mispronounced the announcer.
+A270HX8LH9LJ8W,26,3,AAR,passive,plausible1,379,The fashionista was humiliated by the mode.
+A270HX8LH9LJ8W,27,1,AI,passive,implausible,301,The bookworm was recited by the poem.
+A270HX8LH9LJ8W,28,7,AI,passive,plausible,23,The victory was guaranteed by the skipper.
+A270HX8LH9LJ8W,29,7,AI,active,plausible,57,The carnivore ate the steak.
+A270HX8LH9LJ8W,30,7,AI,passive,plausible,49,The wash basin was cleaned by the domestic.
+A270HX8LH9LJ8W,31,7,AAR,active,plausible0,207,The actuary assuaged the creditor.
+A270HX8LH9LJ8W,32,7,AAR,active,plausible1,183,The athlete vexed the commentator.
+A270HX8LH9LJ8W,33,5,AAR,active,plausible0,415,The plumber devastated the foreman.
+A270HX8LH9LJ8W,34,7,AAN,passive,plausible,331,The pop star was stalked by the paparazzi.
+A270HX8LH9LJ8W,35,7,AAR,passive,plausible1,407,The cinematographer was favored by the movie star.
+A270HX8LH9LJ8W,36,7,AAR,active,plausible0,383,The neighbor snubbed the newcomer.
+A270HX8LH9LJ8W,37,6,AAN,active,implausible,341,The cadet supervised the colonel.
+A270HX8LH9LJ8W,38,7,AAR,active,plausible0,263,The protestor quoted the leader.
+A270HX8LH9LJ8W,39,6,AAR,active,plausible1,265,The taxi-driver repulsed the postal worker.
+A270HX8LH9LJ8W,40,7,AAN,active,plausible,343,The personal trainer weighed the Olympian.
+A270HX8LH9LJ8W,41,7,AAN,passive,plausible,147,The successor was chosen by the baron.
+A270HX8LH9LJ8W,42,7,AI,passive,plausible,85,The estate was inspected by the sheriff.
+A270HX8LH9LJ8W,43,6,AAN,passive,implausible,161,The impersonator was conned by the inspector.
+A270HX8LH9LJ8W,44,7,AI,active,plausible,293,The counselor emphasized the rules.
+A270HX8LH9LJ8W,45,7,AAN,passive,implausible,125,The biker was defied by the trainer.
+A270HX8LH9LJ8W,46,7,AAR,passive,plausible0,399,The retailer was harassed by the claims adjuster.
+A270HX8LH9LJ8W,47,7,AI,active,plausible,15,The handyman repaired the faucet.
+A270HX8LH9LJ8W,48,1,AI,active,implausible,87,The photograph signed the celebrity.
+A270HX8LH9LJ8W,49,1,AI,active,implausible,285,The button pressed the attendant.
+A270HX8LH9LJ8W,50,7,AAR,passive,plausible0,185,The churchgoer was hugged by the preacher.
+A270HX8LH9LJ8W,51,7,AI,passive,plausible,63,The dinner was prepared by the woman.
+A270HX8LH9LJ8W,52,7,AAR,active,plausible1,397,The loyalist upset the infantryman.
+A270HX8LH9LJ8W,53,7,AAN,passive,plausible,357,The ruffian was released by the bailiff.
+A270HX8LH9LJ8W,54,6,AAN,active,plausible,177,The environmentalist cautioned the tobacconist.
+A3R5OJR60C6004,1,7,AI,passive,plausible,45,The curtains were recommended by the decorator.
+A3R5OJR60C6004,2,1,AI,active,implausible,75,The graph created the bookkeeper.
+A3R5OJR60C6004,3,5,AAN,active,implausible,327,The actress cast the producer.
+A3R5OJR60C6004,4,2,AI,passive,implausible,65,The sightseer was misplaced by the memento.
+A3R5OJR60C6004,5,1,AI,active,implausible,289,The umbrella forgot the couch-potato.
+A3R5OJR60C6004,6,7,AI,active,plausible,61,The instructor purchased the computer.
+A3R5OJR60C6004,7,7,AAN,active,plausible,335,The streetwalker undercharged the seaman.
+A3R5OJR60C6004,8,7,AAN,active,plausible,151,The father pampered the infant.
+A3R5OJR60C6004,9,4,AAN,active,implausible,145,The kid reprimanded the headmaster.
+A3R5OJR60C6004,10,7,AI,active,plausible,291,The hacker memorized the password.
+A3R5OJR60C6004,11,1,AI,passive,implausible,297,The fisherman was emptied by the trashcan.
+A3R5OJR60C6004,12,7,AAN,passive,plausible,363,The tribesman was studied by the anthropologist.
+A3R5OJR60C6004,13,7,AAN,passive,plausible,123,The apprentice was trained by the artisan.
+A3R5OJR60C6004,14,7,AI,passive,plausible,27,The banner was raised by the soldier.
+A3R5OJR60C6004,15,1,AAN,passive,implausible,359,The president was pardoned by the traitor.
+A3R5OJR60C6004,16,5,AI,active,plausible,11,The overseer provided the alcohol.
+A3R5OJR60C6004,18,1,AAN,passive,implausible,337,The jury was acquitted by the economist.
+A3R5OJR60C6004,19,7,AI,passive,plausible,67,The schedule was verified by the humorist.
+A3R5OJR60C6004,20,7,AAR,active,plausible0,387,The baker mentioned the miller.
+A3R5OJR60C6004,21,1,AI,active,implausible,51,The pill took the convalescent.
+A3R5OJR60C6004,22,4,AAN,active,implausible,89,The boy tutored the nanny.
+A3R5OJR60C6004,23,7,AAN,active,plausible,131,The smuggler bribed the bureaucrat.
+A3R5OJR60C6004,24,7,AAR,active,plausible1,193,The weatherman annoyed the drummer.
+A3R5OJR60C6004,25,7,AAR,passive,plausible1,403,The physicist was nagged by the mathematician.
+A3R5OJR60C6004,26,7,AAN,active,plausible,107,The paramedic revived the youth.
+A3R5OJR60C6004,27,1,AI,active,implausible,315,The fund established the supremacist.
+A3R5OJR60C6004,28,7,AAR,passive,plausible0,395,The swimmer was impressed by the surfer.
+A3R5OJR60C6004,29,7,AI,active,plausible,323,The charlatan burned the contract.
+A3R5OJR60C6004,30,7,AAN,passive,implausible,159,The windbag was taunted by the recluse.
+A3R5OJR60C6004,31,6,AAR,passive,plausible1,271,The culprit was betrayed by the hunter.
+A3R5OJR60C6004,33,7,AAN,active,implausible,349,The chiropractor thanked the tennis player.
+A3R5OJR60C6004,34,7,AAR,passive,plausible1,233,The missionary was baffled by the oracle.
+A3R5OJR60C6004,35,7,AAN,passive,plausible,141,The inmate was caught by the warden.
+A3R5OJR60C6004,36,6,AAR,active,plausible1,215,The farmer affronted the mapmaker.
+A3R5OJR60C6004,37,1,AI,passive,implausible,17,The receptionist was tidied by the table.
+A3R5OJR60C6004,38,7,AAR,passive,plausible1,199,The acrobat was pushed by the stranger.
+A3R5OJR60C6004,39,7,AAR,passive,plausible0,249,The gnome was protected by the wizard.
+A3R5OJR60C6004,40,7,AAR,passive,plausible0,217,The entertainer was awed by the poet.
+A3R5OJR60C6004,41,6,AAR,active,plausible1,391,The fieldworker misled the sharecropper.
+A3R5OJR60C6004,42,4,AAN,passive,implausible,139,The driver was transported by the ambassador.
+A3R5OJR60C6004,43,3,AAN,passive,plausible,347,The tour-guide was chased by the lion.
+A3R5OJR60C6004,44,7,AI,passive,plausible,307,The passport was photocopied by the travel-agent.
+A3R5OJR60C6004,45,4,AAN,active,implausible,129,The cousin shocked the genius.
+A3R5OJR60C6004,46,7,AAR,active,plausible1,243,The messenger swindled the interpreter.
+A3R5OJR60C6004,47,7,AAN,passive,implausible,109,The prankster was duped by the marketer.
+A3R5OJR60C6004,48,6,AAR,passive,plausible0,195,The defendant was belittled by the go-between.
+A3R5OJR60C6004,49,7,AAR,active,plausible0,205,The nobleman married the baroness.
+A3R5OJR60C6004,50,7,AAR,active,plausible0,409,The bricklayer outraged the crane operator.
+A3R5OJR60C6004,51,5,AAR,active,plausible0,239,The shrink commended the dean.
+A3R5OJR60C6004,52,1,AI,passive,implausible,39,The nutritionist was detested by the marmalade.
+A3R5OJR60C6004,53,6,AAN,active,plausible,355,The huntsman trapped the deer.
+A3R5OJR60C6004,54,7,AAN,passive,plausible,171,The first lady was petrified by the terrorist.
+AU2RMH9IZP60M,1,2,AI,active,plausible,289,The couch-potato forgot the umbrella.
+AU2RMH9IZP60M,2,1,AI,active,implausible,27,The banner raised the soldier.
+AU2RMH9IZP60M,3,1,AI,passive,implausible,61,The instructor was purchased by the computer.
+AU2RMH9IZP60M,4,7,AI,passive,plausible,297,The trashcan was emptied by the fisherman.
+AU2RMH9IZP60M,5,3,AI,passive,implausible,323,The charlatan was burnt by the contract.
+AU2RMH9IZP60M,6,7,AI,passive,plausible,39,The marmalade was detested by the nutritionist.
+AU2RMH9IZP60M,7,7,AI,active,plausible,75,The bookkeeper created the graph.
+AU2RMH9IZP60M,8,5,AAN,passive,implausible,355,The huntsman was trapped by the deer.
+AU2RMH9IZP60M,10,7,AAN,active,plausible,327,The producer cast the actress.
+AU2RMH9IZP60M,11,7,AI,active,plausible,51,The convalescent took the pill.
+AU2RMH9IZP60M,13,5,AAN,active,implausible,347,The tour-guide chased the lion.
+AU2RMH9IZP60M,14,6,AAR,active,plausible0,403,The physicist nagged the mathematician.
+AU2RMH9IZP60M,15,7,AAR,passive,plausible1,249,The wizard was protected by the gnome.
+AU2RMH9IZP60M,16,5,AAR,passive,plausible0,193,The weatherman was annoyed by the drummer.
+AU2RMH9IZP60M,17,7,AAR,passive,plausible0,243,The messenger was swindled by the interpreter.
+AU2RMH9IZP60M,18,1,AI,passive,implausible,11,The overseer was provided by the alcohol.
+AU2RMH9IZP60M,19,7,AAN,active,plausible,145,The headmaster reprimanded the kid.
+AU2RMH9IZP60M,20,6,AI,active,implausible,67,The schedule verified the humorist.
+AU2RMH9IZP60M,21,2,AAN,passive,implausible,107,The paramedic was revived by the youth.
+AU2RMH9IZP60M,22,3,AAN,active,implausible,171,The first lady petrified the terrorist.
+AU2RMH9IZP60M,23,1,AAN,passive,implausible,151,The father was pampered by the infant.
+AU2RMH9IZP60M,24,7,AI,passive,plausible,17,The table was tidied by the receptionist.
+AU2RMH9IZP60M,25,6,AAR,passive,plausible0,391,The fieldworker was misled by the sharecropper.
+AU2RMH9IZP60M,26,6,AAR,passive,plausible1,217,The poet was awed by the entertainer.
+AU2RMH9IZP60M,27,2,AAR,passive,plausible1,195,The go-between was belittled by the defendant.
+AU2RMH9IZP60M,28,5,AAR,passive,plausible0,215,The farmer was affronted by the mapmaker.
+AU2RMH9IZP60M,29,5,AAR,active,plausible1,409,The crane operator outraged the bricklayer.
+AU2RMH9IZP60M,30,2,AAR,active,plausible0,233,The missionary baffled the oracle.
+AU2RMH9IZP60M,31,2,AAN,active,implausible,141,The inmate caught the warden.
+AU2RMH9IZP60M,32,1,AI,active,implausible,307,The passport photocopied the travel-agent.
+AU2RMH9IZP60M,33,7,AAN,active,plausible,349,The tennis player thanked the chiropractor.
+AU2RMH9IZP60M,34,7,AAN,passive,plausible,139,The ambassador was transported by the driver.
+AU2RMH9IZP60M,35,2,AAN,passive,plausible,359,The traitor was pardoned by the president.
+AU2RMH9IZP60M,36,2,AAR,active,plausible0,199,The acrobat pushed the stranger.
+AU2RMH9IZP60M,37,1,AI,passive,implausible,291,The hacker was memorized by the password.
+AU2RMH9IZP60M,38,3,AAN,passive,implausible,131,The smuggler was bribed by the bureaucrat.
+AU2RMH9IZP60M,39,7,AAR,active,plausible1,205,The baroness married the nobleman.
+AU2RMH9IZP60M,40,7,AAN,active,plausible,89,The nanny tutored the boy.
+AU2RMH9IZP60M,41,2,AAN,active,implausible,123,The apprentice trained the artisan.
+AU2RMH9IZP60M,42,6,AAR,active,plausible0,271,The culprit betrayed the hunter.
+AU2RMH9IZP60M,43,6,AAR,passive,plausible1,395,The surfer was impressed by the swimmer.
+AU2RMH9IZP60M,44,6,AI,active,plausible,315,The supremacist established the fund.
+AU2RMH9IZP60M,45,6,AI,passive,plausible,65,The memento was misplaced by the sightseer.
+AU2RMH9IZP60M,46,1,AI,active,implausible,45,The curtains recommended the decorator.
+AU2RMH9IZP60M,47,7,AAN,passive,plausible,109,The marketer was duped by the prankster.
+AU2RMH9IZP60M,48,7,AAN,passive,plausible,337,The economist was acquitted by the jury.
+AU2RMH9IZP60M,49,4,AAN,active,implausible,363,The tribesman studied the anthropologist.
+AU2RMH9IZP60M,50,5,AAR,active,plausible1,239,The dean commended the shrink.
+AU2RMH9IZP60M,51,4,AAN,active,plausible,129,The genius shocked the cousin.
+AU2RMH9IZP60M,52,3,AAR,active,plausible1,387,The miller mentioned the baker.
+AU2RMH9IZP60M,53,2,AAN,passive,implausible,335,The streetwalker was undercharged by the seaman.
+AU2RMH9IZP60M,54,6,AAN,passive,plausible,159,The recluse was taunted by the windbag.
