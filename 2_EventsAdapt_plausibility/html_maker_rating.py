@@ -74,10 +74,10 @@ for i in range(1, num_items + 1):
 f.write("""
     <p>Please complete the following sentences with <b>more than three words</b></p>
     <p>(a) When I was younger, I would go to school and _______</p>
-    <p><textarea name="profeciency1" cols="80" rows="1">When I was younger, I would go to school and </textarea></p>
+    <p><textarea name="proficiency1" cols="80" rows="1">When I was younger, I would go to school and </textarea></p>
     <p>---------------------------------------------------------------------------------------------------------------</p>
     <p>(b) It's raining tomorrow, so _______</p>
-    <p><textarea name="profeciency2" cols="80" rows="1">It's raining tomorrow, so </textarea></p>
+    <p><textarea name="proficiency2" cols="80" rows="1">It's raining tomorrow, so </textarea></p>
     <p>---------------------------------------------------------------------------------------------------------------</p>
     """)
 

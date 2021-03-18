@@ -377,10 +377,10 @@ def check(d, F, Y, N, lcm):
             print("        is not the same")
             sys.exit(1)
 
-def make_rows(list_of_trials):
+def make_rows(list_of_trials, code=None):
     for i, trials in enumerate(list_of_trials):
         newrow = []
-        newrow.append(str(i+1))
+        newrow.append(f"{code}_{i+1}")
         for trial in trials:
             newrow.append(trial.body)
             answer = "NO_QUESTION"
@@ -401,7 +401,7 @@ def make_rows(list_of_trials):
 
 
 def create_turk_file(filename=None, N=None, F=None, Y=None, seed=None,
-                     FNAME=None, append=False):
+                     FNAME=None, append=False, code=None):
     if filename is None:  # two modes, either pass in all args or get input
         filename, N, F, Y, seed = get_args()
     if seed is not None:
@@ -463,7 +463,7 @@ def create_turk_file(filename=None, N=None, F=None, Y=None, seed=None,
     print()
     print("Creating csv file...")
     header = make_header(final)
-    rows = make_rows(final)
+    rows = make_rows(final, code)
 
     mode = 'ab' if append else 'wb'
     with codecs.open(FNAME + '.turk.csv', mode, encoding='utf-8') as outfile:
