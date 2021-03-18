@@ -8,8 +8,9 @@ library(stringr)
 library(stringi)
 
 # READ DATA
-filenames=c('../results_raw/Batch_4332828_batch_results.csv')
-            
+filenames=c('../results_raw/Batch_4332828_batch_results.csv',
+            '../results_raw/Batch_4368386_batch_results.csv')
+
 data <- lapply(filenames, read.csv)
 data = do.call("rbind", data)
             
@@ -21,6 +22,14 @@ data = data %>% select(starts_with('Input'),starts_with('Answer'),
             select(-Input.list, -Answer.answer, -Answer.proficiency1,
                    -Answer.proficiency2)
 
+
+# exclude bad workers (note: currently done manually)
+data = data %>%
+  filter(!(WorkerId %in% c('A35LWWZHYTBJES', 'A15A618QS7DD79', 'A1IC1DQ0QQBOOZ',
+                           'A3V2XCDF45VN9X', 'A179LPB3NPSEF8', 'A13ASIJ31D76UN',
+                           'A2717S28QHY09K')))                   # bad responses
+
+
 # gather (specify the list of columns you need)
 data = data %>% gather(key='variable',value="value",
                        -WorkerId,-Answer.country, -Answer.English, 
@@ -31,10 +40,6 @@ data = data %>% separate(variable, into=c('Type','TrialNum'),sep='__',convert=TR
 
 # spread
 data = data %>% spread(key = Type, value = value)
-
-# exclude bad workers (note: currently done manually)
-data = data %>%
-  filter(!(WorkerId %in% c('AT8S19U5993HR', 'A2R1A479K07ME5')))                   # bad responses
 
 ## Summarize ratings data 
 data$Answer.Rating <- as.numeric(data$Answer.Rating)
@@ -85,6 +90,7 @@ z_score = function(xs) {
 }
 
 #filter for US, English, na, and duplicate, then get scores
+###TODO: add filter for filler.left and filler.right??
 data$Item = as.numeric(data$Item)
 data.good = data %>%
   filter(Answer.English == "yes" &
@@ -97,9 +103,7 @@ data.good = data %>%
   select(-Answer.English, -Answer.country, -Answer.profcheck1, -Answer.profcheck2,
          -na.pct, -n)
 
-
-
-
+write_csv(data.good,"good_data.csv")
 
 
 data.good.summary = data.good %>%

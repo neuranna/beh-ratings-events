@@ -8,7 +8,8 @@ library(stringr)
 library(stringi)
 
 # READ DATA
-filenames=c('../results_raw/Batch_4332828_batch_results.csv')
+filenames=c('../results_raw/Batch_4332828_batch_results.csv',
+            '../results_raw/Batch_4368386_batch_results.csv')
 
 data <- lapply(filenames, read.csv)
 data = do.call("rbind", data)
