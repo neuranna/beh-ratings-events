@@ -9,7 +9,7 @@ library(stringi)
 
 # READ DATA
 filenames=c('../results_raw/Batch_4332828_batch_results.csv',
-            '../results_raw/Batch_4368386_batch_results.csv')
+             '../results_raw/Batch_4368386_batch_results.csv')
 
 data <- lapply(filenames, read.csv)
 data = do.call("rbind", data)
@@ -18,20 +18,21 @@ num.trials = 54  # maximum number of trials per participant
 
 # only keep WorkerId and cols that Start with Answer or Input
 data = data %>% select(starts_with('Input'),starts_with('Answer'),
-                       starts_with('WorkerId'),starts_with('WorkTimeInSeconds')) 
+                       starts_with('WorkerId'),starts_with('WorkTimeInSeconds'),
+                       starts_with('HITId')) 
 
 # checksdf = data %>% select(starts_with('WorkerId'))
 
 checksdf = data %>% select(c('WorkerId', 'Answer.English', 'Answer.country',
-                             'Answer.profcheck1', 'Answer.profcheck2',
-                             'WorkTimeInSeconds', 'Answer.answer'))
+                             'Answer.proficiency1', 'Answer.proficiency2',
+                             'WorkTimeInSeconds', 'Answer.answer', 'HITId'))
 
 # gather (specify the list of columns you need)
 data = data %>% gather(key='variable',value="value",
                        -WorkerId,-Input.list,-Answer.country,
                        -Answer.English,-Answer.answer, -Answer.proficiency1,
                        -Answer.proficiency2, -WorkTimeInSeconds,
-                       -Answer.profcheck1, -Answer.profcheck2)
+                       -Answer.profcheck1, -Answer.profcheck2, -HITId)
 
 # separate
 data = data %>% separate(variable, into=c('Type','TrialNum'),sep='__',convert=TRUE) 
@@ -77,6 +78,8 @@ data = data %>%
     ) %>%
   ungroup()
 
+# To look at only AI output
+data = data %>% filter(TrialType == "AI")
 
 data = data %>% 
   group_by(WorkerId, Plausibility) %>%
@@ -98,5 +101,5 @@ data_summ = data %>% group_by(WorkerId, Plausibility) %>%
 data_summ = merge(data_summ, checksdf, by="WorkerId")
 
 ## save a summary of individual subjects' performance
-write_csv(data_summ,"data_summ_by_worker.csv")
+write_csv(data_summ,"data_summ_by_worker_AIonly.csv")
 
