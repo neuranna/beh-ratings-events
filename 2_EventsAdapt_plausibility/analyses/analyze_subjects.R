@@ -100,6 +100,23 @@ data_summ = data %>% group_by(WorkerId, Plausibility) %>%
 
 data_summ = merge(data_summ, checksdf, by="WorkerId")
 
+data_summ$diff = data_summ$plausible - data_summ$implausible
+
+data_summ[!is.na(data_summ$diff) & data_summ$diff < 2, "Reject"] = 
+  "Improper ratings of implausible and plausible sentences."
+
+data_summ[!is.na(data_summ$filler.left) & data_summ$filler.left != 7, "Reject"] =
+  "Missed attention check."
+
+data_summ[!is.na(data_summ$filler.right) & data_summ$filler.right != 1, "Reject"] =
+  "Missed attention check."
+
+data_summ[data_summ$na.pct > 0.3, "Reject"] = "Too many questions not answered."
+
+rejectdf = data_summ %>% select(c('HITId', 'Reject'))
+rejectdf[is.na(rejectdf$Reject), "Accept"] = "x"
+
+
 ## save a summary of individual subjects' performance
 write_csv(data_summ,"data_summ_by_worker_AIonly.csv")
 
