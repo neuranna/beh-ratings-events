@@ -8,8 +8,8 @@ library(stringr)
 library(stringi)
 
 # READ DATA
-filenames=c('../results_raw/Batch_4332828_batch_results.csv',
-             '../results_raw/Batch_4368386_batch_results.csv')
+filenames=c('../results_raw/Batch_4368386_batch_results_raw.csv',
+            '../results_raw/Batch_4332828_batch_results_raw.csv')
 
 data <- lapply(filenames, read.csv)
 data = do.call("rbind", data)
@@ -19,20 +19,25 @@ num.trials = 54  # maximum number of trials per participant
 # only keep WorkerId and cols that Start with Answer or Input
 data = data %>% select(starts_with('Input'),starts_with('Answer'),
                        starts_with('WorkerId'),starts_with('WorkTimeInSeconds'),
-                       starts_with('HITId')) 
+                       starts_with('HITId'), starts_with('AssignmentStatus'),
+                       starts_with('AssignmentId'))
+
+# #get only newly submitted HITs
+# data = data %>% filter(AssignmentStatus == "Submitted")
 
 # checksdf = data %>% select(starts_with('WorkerId'))
 
 checksdf = data %>% select(c('WorkerId', 'Answer.English', 'Answer.country',
                              'Answer.proficiency1', 'Answer.proficiency2',
-                             'WorkTimeInSeconds', 'Answer.answer', 'HITId'))
+                             'WorkTimeInSeconds', 'Answer.answer', 'HITId', 
+                             'AssignmentStatus', 'AssignmentId'))
 
 # gather (specify the list of columns you need)
 data = data %>% gather(key='variable',value="value",
                        -WorkerId,-Input.list,-Answer.country,
                        -Answer.English,-Answer.answer, -Answer.proficiency1,
-                       -Answer.proficiency2, -WorkTimeInSeconds,
-                       -Answer.profcheck1, -Answer.profcheck2, -HITId)
+                       -Answer.proficiency2, -WorkTimeInSeconds, -HITId, 
+                       -AssignmentStatus, -AssignmentId)
 
 # separate
 data = data %>% separate(variable, into=c('Type','TrialNum'),sep='__',convert=TRUE) 
@@ -102,7 +107,15 @@ data_summ = merge(data_summ, checksdf, by="WorkerId")
 
 data_summ$diff = data_summ$plausible - data_summ$implausible
 
-data_summ[!is.na(data_summ$diff) & data_summ$diff < 2, "Reject"] = 
+## save a summary of individual subjects' performance
+
+write_csv(data_summ,"data_summ_by_worker_AIonly_summ.csv")
+
+
+
+# Rejection criteria
+
+data_summ[!is.na(data_summ$diff) & data_summ$diff < 1, "Reject"] = 
   "Improper ratings of implausible and plausible sentences."
 
 data_summ[!is.na(data_summ$filler.left) & data_summ$filler.left != 7, "Reject"] =
@@ -113,10 +126,16 @@ data_summ[!is.na(data_summ$filler.right) & data_summ$filler.right != 1, "Reject"
 
 data_summ[data_summ$na.pct > 0.3, "Reject"] = "Too many questions not answered."
 
-rejectdf = data_summ %>% select(c('HITId', 'Reject'))
-rejectdf[is.na(rejectdf$Reject), "Accept"] = "x"
+rejectdf = data_summ %>% select(c('AssignmentId', 'Reject'))
+rejectdf[is.na(rejectdf$Reject), "Approve"] = "x"
 
+#store rejection df
+f = c('../results_raw/Batch_4368386_batch_results(2)_raw.csv')
+raw <- lapply(f, read.csv)
+raw = do.call("rbind", raw)
+raw = raw %>% select(-Approve, -Reject)
+raw <- merge(raw, rejectdf, by="AssignmentId")
 
-## save a summary of individual subjects' performance
-write_csv(data_summ,"data_summ_by_worker_AIonly.csv")
+write_csv(raw,"../results_raw/Batch_4368386_batch_results_done_new.csv", na="")
+
 

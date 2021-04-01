@@ -8,8 +8,8 @@ library(stringr)
 library(stringi)
 
 # READ DATA
-filenames=c('../results_raw/Batch_4332828_batch_results.csv',
-            '../results_raw/Batch_4368386_batch_results.csv')
+filenames=c('../results_raw/Batch_4332828_batch_results_raw.csv',
+            '../results_raw/Batch_4368386_batch_results_raw.csv')
 
 data <- lapply(filenames, read.csv)
 data = do.call("rbind", data)
@@ -18,22 +18,23 @@ num.trials = 54  # maximum number of trials per participant
 
 # only keep WorkerId and cols that Start with Answer or Input
 data = data %>% select(starts_with('Input'),starts_with('Answer'),
-                       starts_with('WorkerId')) %>%
+                       starts_with('WorkerId'), starts_with('AssignmentId')) %>%
             select(-Input.list, -Answer.answer, -Answer.proficiency1,
                    -Answer.proficiency2)
 
 
-# exclude bad workers (note: currently done manually)
-data = data %>%
-  filter(!(WorkerId %in% c('A35LWWZHYTBJES', 'A15A618QS7DD79', 'A1IC1DQ0QQBOOZ',
-                           'A3V2XCDF45VN9X', 'A179LPB3NPSEF8', 'A13ASIJ31D76UN',
-                           'A2717S28QHY09K')))                   # bad responses
-
+# exclude bad workers
+# data = data %>%
+#   filter(!(WorkerId %in% c('A35LWWZHYTBJES', 'A15A618QS7DD79', 'A1IC1DQ0QQBOOZ',
+#                            'A3V2XCDF45VN9X', 'A179LPB3NPSEF8', 'A13ASIJ31D76UN',
+#                            'A2717S28QHY09K')))                   # bad responses
+workers = read.csv("data_summ_by_worker_AIonly_summ.csv")
+workers = workers %>% filter(is.na(Use))
+data = data %>% filter(!(WorkerId %in% workers$WorkerId))
 
 # gather (specify the list of columns you need)
 data = data %>% gather(key='variable',value="value",
-                       -WorkerId,-Answer.country, -Answer.English, 
-                       -Answer.profcheck1, -Answer.profcheck2)
+                       -WorkerId,-Answer.country, -Answer.English, -AssignmentId)
 
 # separate
 data = data %>% separate(variable, into=c('Type','TrialNum'),sep='__',convert=TRUE) 
@@ -63,6 +64,17 @@ write_csv(data,"longform_data.csv")
 
 
 # ANALYSES
+
+## Look at data by question
+
+summ_by_item = data %>%
+  group_by(Voice, Plausibility, Item) %>%
+  summarize(
+    n = length(Answer.Rating),
+    mean = mean(Answer.Rating, na.rm = TRUE)
+  )
+
+write.csv(summ_by_item, "data_by_item.csv")
 
 ## Look at data by participant (TODO: fix avg rating for plaus and implaus)
 data = data %>%
