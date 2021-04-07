@@ -47,6 +47,8 @@ changes_dict.update({fr"\b{word[0].upper()}{word[1:]}\b": f"The {word}"
                      for word in change_words})
 # convert 'jam' -> 'the jam' and 'Jam' -> 'The jam'
 changes_dict[r'\bsautéed\b'] = 'sauteed'  # avoid char issues
+changes_dict[r'\bmode\b'] = 'model'  # typo
+
 
 # additions to round things out
 sent_changes = {

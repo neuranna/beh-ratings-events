@@ -413,13 +413,13 @@ The barrister was paid by the photographer.
 The photographer was paid by the barrister. 
 
 # AAR 379 active-plausible-0
-The fashionista humiliated the mode. 
+The fashionista humiliated the model. 
 # AAR 379 active-plausible-1
-The mode humiliated the fashionista. 
+The model humiliated the fashionista. 
 # AAR 379 passive-plausible-0
-The mode was humiliated by the fashionista. 
+The model was humiliated by the fashionista. 
 # AAR 379 passive-plausible-1
-The fashionista was humiliated by the mode. 
+The fashionista was humiliated by the model. 
 
 # AAR 383 active-plausible-0
 The neighbor snubbed the newcomer. 
