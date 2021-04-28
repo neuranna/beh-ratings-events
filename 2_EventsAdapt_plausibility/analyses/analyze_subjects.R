@@ -107,7 +107,17 @@ data_summ = merge(data_summ, checksdf, by="WorkerId")
 
 data_summ$diff = data_summ$plausible - data_summ$implausible
 
+## get profcheck from before
+
+f = c('data_summ_by_worker_AIonly_oldchecks.csv')
+data_old <- lapply(f, read.csv)
+data_old = do.call("rbind", data_old)
+data_old = data_old %>% select(c('WorkerId', 'HITId', 'profcheck'))
+data_summ <- merge(data_summ, data_old, by=c("WorkerId", "HITId"), all=TRUE)
+
+
 ## save a summary of individual subjects' performance
+
 
 write_csv(data_summ,"data_summ_by_worker_AIonly_summ.csv")
 
