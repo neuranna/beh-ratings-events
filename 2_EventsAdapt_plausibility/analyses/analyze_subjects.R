@@ -8,8 +8,7 @@ library(stringr)
 library(stringi)
 
 # READ DATA
-filenames=c('../results_raw/Batch_4368386_batch_results_raw.csv',
-            '../results_raw/Batch_4332828_batch_results_raw.csv')
+filenames=c('../results_raw/Batch_4430335_batch_results_raw.csv')
 
 data <- lapply(filenames, read.csv)
 data = do.call("rbind", data)
@@ -119,7 +118,7 @@ data_summ <- merge(data_summ, data_old, by=c("WorkerId", "HITId"), all=TRUE)
 ## save a summary of individual subjects' performance
 
 
-write_csv(data_summ,"data_summ_by_worker_AIonly_summ.csv")
+write_csv(data_summ,"data_summ_by_worker_finalbatch_summ.csv")
 
 
 
