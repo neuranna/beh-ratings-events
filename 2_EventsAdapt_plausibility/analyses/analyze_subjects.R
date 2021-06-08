@@ -8,7 +8,9 @@ library(stringr)
 library(stringi)
 
 # READ DATA
-filenames=c('../results_raw/Batch_4430335_batch_results_raw.csv')
+filenames=c('../results_raw/Batch_4430335_batch_results_raw.csv',
+            '../results_raw/Batch_4332828_batch_results_raw.csv',
+            '../results_raw/Batch_4368386_batch_results_raw.csv')
 
 data <- lapply(filenames, read.csv)
 data = do.call("rbind", data)
@@ -118,33 +120,34 @@ data_summ <- merge(data_summ, data_old, by=c("WorkerId", "HITId"), all=TRUE)
 ## save a summary of individual subjects' performance
 
 
-write_csv(data_summ,"data_summ_by_worker_finalbatch_summ.csv")
+write_csv(data_summ,"data_summ_by_worker_all_summ.csv")
 
 
 
-# Rejection criteria
-
-data_summ[!is.na(data_summ$diff) & data_summ$diff < 1, "Reject"] = 
-  "Improper ratings of implausible and plausible sentences."
-
-data_summ[!is.na(data_summ$filler.left) & data_summ$filler.left != 7, "Reject"] =
-  "Missed attention check."
-
-data_summ[!is.na(data_summ$filler.right) & data_summ$filler.right != 1, "Reject"] =
-  "Missed attention check."
-
-data_summ[data_summ$na.pct > 0.3, "Reject"] = "Too many questions not answered."
-
-rejectdf = data_summ %>% select(c('AssignmentId', 'Reject'))
-rejectdf[is.na(rejectdf$Reject), "Approve"] = "x"
-
-#store rejection df
-f = c('../results_raw/Batch_4368386_batch_results(2)_raw.csv')
-raw <- lapply(f, read.csv)
-raw = do.call("rbind", raw)
-raw = raw %>% select(-Approve, -Reject)
-raw <- merge(raw, rejectdf, by="AssignmentId")
-
-write_csv(raw,"../results_raw/Batch_4368386_batch_results_done_new.csv", na="")
+# # Rejection criteria
+# # Used when rejecting HITs on MTurk
+# 
+# data_summ[!is.na(data_summ$diff) & data_summ$diff < 1, "Reject"] = 
+#   "Improper ratings of implausible and plausible sentences."
+# 
+# data_summ[!is.na(data_summ$filler.left) & data_summ$filler.left != 7, "Reject"] =
+#   "Missed attention check."
+# 
+# data_summ[!is.na(data_summ$filler.right) & data_summ$filler.right != 1, "Reject"] =
+#   "Missed attention check."
+# 
+# data_summ[data_summ$na.pct > 0.3, "Reject"] = "Too many questions not answered."
+# 
+# rejectdf = data_summ %>% select(c('AssignmentId', 'Reject'))
+# rejectdf[is.na(rejectdf$Reject), "Approve"] = "x"
+# 
+# #store rejection df
+# f = c('../results_raw/Batch_4368386_batch_results(2)_raw.csv')
+# raw <- lapply(f, read.csv)
+# raw = do.call("rbind", raw)
+# raw = raw %>% select(-Approve, -Reject)
+# raw <- merge(raw, rejectdf, by="AssignmentId")
+# 
+# write_csv(raw,"../results_raw/Batch_4368386_batch_results_done_new.csv", na="")
 
 
