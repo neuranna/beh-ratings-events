@@ -126,7 +126,9 @@ num_sents_per_worker = data %>%
 time_per_worker = data %>% 
   select(WorkerId, HITId, WorkTimeInSeconds) %>%
   ungroup() %>% distinct() %>%
-  summarize(TimeInMin = mean(WorkTimeInSeconds))
+  summarize(mean = mean(WorkTimeInSeconds)/60,
+            median = median(WorkTimeInSeconds)/60,
+            SD = sd(WorkTimeInSeconds/60))
  
 
 # save worker data
@@ -143,3 +145,13 @@ data.clean = data %>%
   arrange(WorkerId, HITId, Item)
 
 write.csv(data.clean, "longform_data.csv", row.names=FALSE)
+
+# sentence stats
+dat.sentence = data.clean %>%
+  group_by(Input.trial) %>%
+  summarize(numRatings = length(Answer.Rating)) %>%
+  ungroup() %>%
+  filter(numRatings>1) %>%    # one item had a typo, we're excluding it later
+  summarize(mean=mean(numRatings),
+            min=min(numRatings),
+            max=max(numRatings))

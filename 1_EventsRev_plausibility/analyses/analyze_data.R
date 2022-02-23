@@ -110,6 +110,18 @@ data.clean = data %>%
 
 write_csv(data.clean,"longform_data.csv")
 
+# sentence stats
+dat.sentence = data.clean %>%
+  group_by(Input.trial) %>%
+  summarize(numRatings = length(Answer.Rating)) %>%
+  ungroup() %>%
+  filter(numRatings>1) %>%    # one item had a typo, we're excluding it later
+  summarize(mean=mean(numRatings),
+            min=min(numRatings),
+            max=max(numRatings))
+
+
+
 
 # ANALYSES
 
