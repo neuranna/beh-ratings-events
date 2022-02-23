@@ -122,9 +122,17 @@ num_hits_per_worker = data %>%
   group_by(WorkerId) %>%
   summarize(numHits = length(unique(HITId))) %>%
   ungroup() %>%
-  summarize(avg = mean(numHits), 
+  summarize(avg = mean(numHits),
             min = min(numHits),
             max = max(numHits))
+
+num_sents_per_worker = data %>%
+  group_by(WorkerId) %>%
+  summarize(numSents=length(Item)) %>%
+  ungroup() %>%
+  summarize(avg = mean(numSents),
+            min = min(numSents),
+            max = max(numSents))
 
 time_per_worker = data %>% 
   select(WorkerId, HITId, WorkTimeInSeconds) %>%
