@@ -1,5 +1,6 @@
 # Created on 2020-05-26 by Anna Ivanova
 # Based on the code by Rachel Ryskin
+# edited on 2022-02-22 by Anna Ivanova (refactoring, automated worker checks)
 
 rm(list=ls())
 library(tidyverse)
@@ -18,34 +19,96 @@ data = do.call("rbind", data)
 num.trials = 42  # maximum number of trials per participant
 
 # only keep WorkerId and cols that Start with Answer or Input
-data = data %>% select(starts_with('Input'),starts_with('Answer'),starts_with('WorkerId')) 
+data = data %>% select(starts_with('Input'),starts_with('Answer'),
+                       starts_with('WorkerId'),starts_with('WorkTimeInSeconds'),
+                       starts_with('HITId'), starts_with('AssignmentStatus'),
+                       starts_with('AssignmentId'))
 
 # gather (specify the list of columns you need)
 data = data %>% gather(key='variable',value="value",
                        -WorkerId,-Input.list,-Answer.country,
-                       -Answer.English,-Answer.answer)
+                       -Answer.English,-Answer.answer, 
+                       -WorkTimeInSeconds, -HITId, 
+                       -AssignmentStatus, -AssignmentId)
 
-# separate
-data = data %>% separate(variable, into=c('Type','TrialNum'),sep='__',convert=TRUE) 
+# reformat
+data = data %>% 
+  separate(variable, into=c('Type','TrialNum'),sep='__',convert=TRUE) %>% 
+  spread(key = Type, value = value)
 
-# spread
-data = data %>% spread(key = Type, value = value)
-
-# exclude bad workers (note: currently done manually)
-data = data %>%
-  filter(!(WorkerId %in% c('AT8S19U5993HR', 'A2R1A479K07ME5')))                   # bad responses
+# # exclude bad workers (note: currently done manually)
+# data = data %>%
+#   filter(!(WorkerId %in% c('AT8S19U5993HR', 'A2R1A479K07ME5')))                   # bad responses
 
 ## Summarize ratings data 
 data$Answer.Rating <- as.numeric(data$Answer.Rating)
 
 data = data %>% 
-  separate(Input.code,into=c('TrialType','Plausibility','Item','xx1','xx2'),sep='_')
-data$TrialType = NULL
-data$xx1 = NULL
-data$xx2 = NULL
+  separate(Input.code,into=c('TrialType','Plausibility','Item','xx1','xx2'),sep='_') %>%
+  select(-TrialType, -xx1, -xx2)
 
-## SAVE A LONGFORM VERSION OF YOUR DATA
-#write_csv(data,"longform_data.csv")
+# clean data
+## Look at data by participant 
+data.worker = data %>% 
+  group_by(WorkerId, HITId) %>%
+  summarize(num_questions = length(Answer.Rating),
+            num_missed = sum(is.na(Answer.Rating)),
+            ratio_missed = num_missed/num_questions,
+            native_english = all(Answer.English=='yes'),
+            country_usa = all(Answer.country=='USA'),
+            filler1 = Answer.Rating[Item=="41"],
+            filler2 = Answer.Rating[Item=="42"],
+            fillers_correct = (filler1==1 & filler2==7))
+
+
+# exclude
+data.worker.clean = data.worker %>%
+  filter(native_english, country_usa,
+         ratio_missed<0.2, fillers_correct)
+
+
+
+## WORKER STATS
+num_workers_all = length(unique(data$WorkerId))
+num_workers_clean = length(unique(data.worker.clean$WorkerId))
+
+num_hits_per_worker = data %>% 
+  group_by(WorkerId) %>%
+  summarize(numHits = length(unique(HITId))) %>%
+  ungroup() %>%
+  summarize(avg = mean(numHits),
+            min = min(numHits),
+            max = max(numHits))
+
+num_sents_per_worker = data %>%
+  group_by(WorkerId) %>%
+  summarize(numSents=length(Item)) %>%
+  ungroup() %>%
+  summarize(avg = mean(numSents),
+            min = min(numSents),
+            max = max(numSents))
+
+time_per_worker = data %>% 
+  select(WorkerId, HITId, WorkTimeInSeconds) %>%
+  ungroup() %>% distinct() %>%
+  summarize(mean = mean(WorkTimeInSeconds)/60,
+            median = median(WorkTimeInSeconds)/60,
+            SD = sd(WorkTimeInSeconds/60))
+
+# save worker data
+write.csv(data.worker, "data_worker_all.csv")
+write.csv(data.worker.clean, "data_worker_clean.csv", row.names=FALSE)
+
+
+# filter big data df based on worker info and save
+data$Item = as.numeric(data$Item)
+data.clean = data %>% 
+  filter(WorkerId %in% data.worker.clean$WorkerId) %>%
+  filter(Item<41) %>%    #fillers
+  select(WorkerId, HITId, TrialNum, Answer.Rating, Plausibility, Item, Input.trial) %>%
+  arrange(WorkerId, HITId, Item)
+
+write_csv(data.clean,"longform_data.csv")
 
 
 # ANALYSES
