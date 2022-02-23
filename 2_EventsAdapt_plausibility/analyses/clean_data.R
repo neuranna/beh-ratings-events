@@ -21,18 +21,11 @@ filenames=c('../results_raw/Batch_4430335_batch_results_raw.csv',
 data <- lapply(filenames, read.csv)
 data = do.call("rbind", data)
 
-num.trials = 54  # maximum number of trials per participant
-
 # only keep relevant columns
 data = data %>% select(starts_with('Input'),starts_with('Answer'),
                        starts_with('WorkerId'),starts_with('WorkTimeInSeconds'),
                        starts_with('HITId'), starts_with('AssignmentStatus'),
                        starts_with('AssignmentId'))
-
-# checksdf = data %>% select(c('WorkerId', 'Answer.English', 'Answer.country',
-#                              'Answer.proficiency1', 'Answer.proficiency2',
-#                              'WorkTimeInSeconds', 'Answer.answer', 'HITId', 
-#                              'AssignmentStatus', 'AssignmentId'))
 
 # CLEAN
 data = data %>% gather(key='variable',value="value",
@@ -51,10 +44,6 @@ data$Answer.Rating <- as.numeric(data$Answer.Rating)
 data$Input.code <- gsub('plausible-0', 'plausible', data$Input.code)
 data$Input.code <- gsub('plausible-1', 'plausible', data$Input.code)
 
-# checksdf$filler.left <- data[data[, "Input.code"]=="filler_filler_2_NO_QUESTION",
-#                       "Answer.Rating"]
-# checksdf$filler.right <- data[data[, "Input.code"]=="filler_filler_1_NO_QUESTION",
-#                             "Answer.Rating"]
 
 # separate the Input code into categories
 data = data %>% 
